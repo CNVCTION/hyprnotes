@@ -1,0 +1,26 @@
+{
+  "name": "notes-cli",
+  "version": "1.0.0",
+  "description": "Dead-simple CLI notepad with Pi-style TUI — type, slash commands, save/load. No AI, no modes, just notes.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "notes": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["notes", "cli", "tui", "notepad", "terminal"],
+  "author": "cnvction.com",
+  "license": "MIT",
+  "dependencies": {
+    "@earendil-works/pi-tui": "^0.74.0",
+    "chalk": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  }
+}
