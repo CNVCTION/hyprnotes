@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * notes-cli — Dead-simple CLI notepad with Pi-style TUI
+ * hyprnotes — Dead-simple CLI notepad with Pi-style TUI
  *
  * Type text → builds buffer.
  * / → dropdown: new, load, save, list, quit
@@ -28,6 +28,7 @@ import {
   TUI,
   type AutocompleteSuggestions,
   type AutocompleteProvider,
+  type Component,
 } from "@earendil-works/pi-tui";
 
 // ─── Config ────────────────────────────────────────────────────────────────────
@@ -127,22 +128,43 @@ function generateTitle(content: string): string {
 // ─── Autocomplete Provider ───────────────────────────────────────────────────────
 
 class SlashAutocomplete implements AutocompleteProvider {
-  async getAutocompleteSuggestions(
-    prefix: string,
-    _cwd: string,
-    _fdPath: string
-  ): Promise<AutocompleteSuggestions> {
-    if (!prefix.startsWith("/"))
-      return { items: [], type: "command" };
+  async getSuggestions(
+    lines: string[],
+    _cursorLine: number,
+    _cursorCol: number,
+    _options: { signal: AbortSignal; force?: boolean }
+  ): Promise<AutocompleteSuggestions | null> {
+    // Build prefix from all lines up to cursor
+    const prefix = lines.join("\n");
+    if (!prefix.startsWith("/")) return null;
+
     const q = prefix.toLowerCase();
     return {
       items: SLASH_COMMANDS.filter((c) =>
         c.value.toLowerCase().startsWith(q)
       ).map((c) => ({
         value: c.value,
+        label: c.value,
         description: c.description ?? "",
       })),
-      type: "command",
+      prefix,
+    };
+  }
+
+  applyCompletion(
+    lines: string[],
+    cursorLine: number,
+    cursorCol: number,
+    item: { value: string },
+    _prefix: string
+  ): { lines: string[]; cursorLine: number; cursorCol: number } {
+    // Replace current line with the command
+    const newLines = [...lines];
+    newLines[cursorLine] = item.value;
+    return {
+      lines: newLines,
+      cursorLine,
+      cursorCol: item.value.length,
     };
   }
 }

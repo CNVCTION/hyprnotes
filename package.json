@@ -1,11 +1,11 @@
 {
-  "name": "notes-cli",
+  "name": "hyprnotes",
   "version": "1.0.0",
   "description": "Dead-simple CLI notepad with Pi-style TUI — type, slash commands, save/load. No AI, no modes, just notes.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "notes": "dist/index.js"
+    "hyprnotes": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",

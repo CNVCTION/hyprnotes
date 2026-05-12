@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# notes-cli installer — curl -sL notescli.sh | bash
+# hyprnotes installer — curl -sL hyprnotes.sh | bash
 set -euo pipefail
 
 BOLD='\033[1m'
@@ -10,7 +10,7 @@ DIM='\033[2m'
 RESET='\033[0m'
 
 echo ""
-echo -e "${BOLD}${CYAN}✎ notes-cli${RESET} installer"
+echo -e "${BOLD}${CYAN}✎ hyprnotes${RESET} installer"
 echo -e "${DIM}Dead-simple CLI notepad${RESET}"
 echo ""
 
@@ -30,15 +30,15 @@ fi
 echo -e "${DIM}Node.js $(node -v) detected${RESET}"
 
 # Install globally
-echo -e "${CYAN}Installing notes-cli...${RESET}"
-npm install -g notes-cli 2>/dev/null || {
+echo -e "${CYAN}Installing hyprnotes...${RESET}"
+npm install -g hyprnotes 2>/dev/null || {
   echo -e "${DIM}Package not on npm yet, installing from GitHub...${RESET}"
-  npm install -g "https://github.com/cnvction/notes-cli/tarball/main" 2>/dev/null || {
+  npm install -g "https://github.com/cnvction/hyprnotes/tarball/main" 2>/dev/null || {
     echo -e "${RED}Installation failed. Install manually:${RESET}"
-    echo -e "  ${DIM}npm i -g notes-cli${RESET}"
+    echo -e "  ${DIM}npm i -g hyprnotes${RESET}"
     echo -e "  ${DIM}# or from source:${RESET}"
-    echo -e "  ${DIM}git clone https://github.com/cnvction/notes-cli.git${RESET}"
-    echo -e "  ${DIM}cd notes-cli && npm install && npm run build && npm link${RESET}"
+    echo -e "  ${DIM}git clone https://github.com/cnvction/hyprnotes.git${RESET}"
+    echo -e "  ${DIM}cd hyprnotes && npm install && npm run build && npm link${RESET}"
     exit 1
   }
 }
@@ -47,6 +47,6 @@ npm install -g notes-cli 2>/dev/null || {
 mkdir -p ~/notes
 
 echo ""
-echo -e "${GREEN}✓ Installed!${RESET} Run ${BOLD}notes${RESET} to start."
+echo -e "${GREEN}✓ Installed!${RESET} Run ${BOLD}hyprnotes${RESET} to start."
 echo -e "${DIM}Notes are stored in ~/notes/${RESET}"
 echo ""

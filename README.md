@@ -1,27 +1,27 @@
-# ✎ notes-cli
+# ✎ hyprnotes
 
 > Dead-simple CLI notepad — type, slash-command, save. No AI, no modes, just notes.
 
 `notes` is a terminal notepad with Pi-style TUI: an editor buffer, `/` slash commands with arrow-key selection, and zero configuration. Notes are plain `.txt` files in `~/notes/`.
 
-![notes-cli](https://cnvction.com/projects/clinotes/screenshot.png)
+![hyprnotes](https://cnvction.com/projects/clinotes/screenshot.png)
 
 ## Install
 
 ```bash
 # npm (recommended)
-npm i -g notes-cli
+npm i -g hyprnotes
 
 # curl
-curl -sL notescli.sh | bash
+curl -sL hyprnotes.sh | bash
 ```
 
 ## Quick Start
 
 ```bash
-notes           # Start TUI
-notes list      # List notes (non-interactive)
-notes --help    # Help
+hyprnotes           # Start TUI
+hyprnotes list      # List notes (non-interactive)
+hyprnotes --help    # Help
 ```
 
 ## In-App Commands
@@ -91,8 +91,8 @@ No React, no Ink, no frameworks. Just Pi's battle-tested TUI primitives.
 ## Development
 
 ```bash
-git clone https://github.com/cnvction/notes-cli.git
-cd notes-cli
+git clone https://github.com/cnvction/hyprnotes.git
+cd hyprnotes
 npm install
 npm run build
 node dist/index.js
@@ -100,4 +100,4 @@ node dist/index.js
 
 ## License
 
-MIT © [cnvction.com](https://cnvction.com)
+MIT © [cnvction.com](https://cnvction.com) — [github.com/cnvction/hyprnotes](https://github.com/cnvction/hyprnotes)
