@@ -35,7 +35,7 @@ import {
 
 const NOTES_DIR = path.join(os.homedir(), "notes");
 const SESSION_FILE = path.join(NOTES_DIR, ".notes-session.json");
-const VERSION = "1.0.0";
+const VERSION = "1.0.1";
 
 // ─── Slash Commands ────────────────────────────────────────────────────────────
 
