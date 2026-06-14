@@ -13,6 +13,8 @@ echo ""
 echo -e "${BOLD}${CYAN}✎ hyprnotes${RESET} installer"
 echo -e "${DIM}Dead-simple CLI notepad${RESET}"
 echo ""
+echo -e "${DIM}Also available via: brew install cnvction/hyprnotes/hyprnotes${RESET}"
+echo ""
 
 # Check Node.js
 if ! command -v node &>/dev/null; then
