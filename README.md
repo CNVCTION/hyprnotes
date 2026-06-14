@@ -11,6 +11,8 @@
 ```bash
 # npm (recommended)
 npm i -g hyprnotes --allow-scripts=koffi
+# If `hyprnotes` is not found, add npm global bin to PATH:
+# echo 'export PATH="$(npm config get prefix)/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 
 # Homebrew
 brew install cnvction/hyprnotes/hyprnotes
