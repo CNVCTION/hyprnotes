@@ -31,7 +31,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cnvction/hyprnotes.git"
+    "url": "git+https://github.com/cnvction/hyprnotes.git"
   },
   "dependencies": {
     "@earendil-works/pi-tui": "^0.74.0",
