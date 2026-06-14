@@ -11,7 +11,7 @@ npm start            # node dist/index.js
 npm run dev          # tsc --watch
 ```
 
-**No test suite exists.** No test framework, no test files, no test script in `package.json`.
+**No test suite exists.** No test framework, no test files. `npm test` is a placeholder that exits 0.
 
 Smoke test after changes:
 ```bash
@@ -21,6 +21,8 @@ node dist/index.js list
 
 No project-local linter or formatter. `tsc` with `strict: true` is the only static check you get.
 
+`package.json` has a `"prepare": "test -d src && npm run build || true"` script. It auto-builds when installing from a GitHub tarball (`npm install -g <tarball_url>`) but is a no-op when installing from the npm registry (which ships pre-built `dist/`).
+
 ## Key facts
 
 - **One source file:** `src/index.ts` (~700 lines). Do not split without strong reason.
@@ -29,6 +31,8 @@ No project-local linter or formatter. `tsc` with `strict: true` is the only stat
 - **Notes storage:** `~/notes/` directory, session state in `~/notes/.notes-session.json`.
 - **CI** runs `npm ci && npm run build` on Node 20 and 22 (`.github/workflows/node.js.yml`).
 - **Publish** via GitHub Releases → `publish.yml` (uses `--provenance`).
+- **Homebrew tap:** `brew install cnvction/hyprnotes/hyprnotes`. Formula lives in this repo at `Formula/hyprnotes.rb` and is mirrored to `github.com/CNVCTION/homebrew-hyprnotes`.
+- **Curl install:** `curl -sL https://raw.githubusercontent.com/CNVCTION/hyprnotes/master/install.sh | bash` — falls back from npm registry to GitHub release tarball with auto-build.
 
 ## Architecture
 
