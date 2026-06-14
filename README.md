@@ -2,7 +2,7 @@
 
 > Dead-simple CLI notepad — type, slash-command, save. No AI, no modes, just notes.
 
-`notes` is a terminal notepad with Pi-style TUI: an editor buffer, `/` slash commands with arrow-key selection, and zero configuration. Notes are plain `.txt` files in `~/notes/`.
+`notes` is a terminal notepad with a minimalist TUI: an editor buffer, `/` slash commands with arrow-key selection, and zero configuration. Notes are plain `.txt` files in `~/notes/`.
 
 ![hyprnotes](https://cnvction.com/projects/clinotes/screenshot.png)
 
@@ -79,14 +79,14 @@ notes          # open and edit
 
 ## Architecture
 
-Built on [`@earendil-works/pi-tui`](https://www.npmjs.com/package/@earendil-works/pi-tui) — the same TUI library powering [Pi](https://pi.dev) coding agent — stripped of all AI features:
+Built on [`@earendil-works/pi-tui`](https://www.npmjs.com/package/@earendil-works/pi-tui) — a lightweight TUI library — stripped of all AI features:
 
-- **Editor** — Pi's `Editor` component (multi-line, autocomplete, clipboard)
-- **SelectList** — Pi's dropdown picker (arrow keys, descriptions, scroll)
-- **Input** — Pi's single-line input (for title prompts)
-- **ProcessTerminal** — Pi's terminal abstraction (raw mode, resize, Kitty protocol)
+- **Editor** — `Editor` component (multi-line, autocomplete, clipboard)
+- **SelectList** — Dropdown picker (arrow keys, descriptions, scroll)
+- **Input** — Single-line input (for title prompts)
+- **ProcessTerminal** — Terminal abstraction (raw mode, resize, Kitty protocol)
 
-No React, no Ink, no frameworks. Just Pi's battle-tested TUI primitives.
+No React, no Ink, no frameworks. Just battle-tested TUI primitives.
 
 ## Development
 
