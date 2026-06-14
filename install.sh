@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# hyprnotes installer — curl -sL hyprnotes.sh | bash
+# hyprnotes installer
+#   curl -sL https://raw.githubusercontent.com/CNVCTION/hyprnotes/master/install.sh | bash
 set -euo pipefail
 
 BOLD='\033[1m'
@@ -12,8 +13,6 @@ RESET='\033[0m'
 echo ""
 echo -e "${BOLD}${CYAN}✎ hyprnotes${RESET} installer"
 echo -e "${DIM}Dead-simple CLI notepad${RESET}"
-echo ""
-echo -e "${DIM}Also available via: brew install cnvction/hyprnotes/hyprnotes${RESET}"
 echo ""
 
 # Check Node.js
@@ -31,19 +30,22 @@ fi
 
 echo -e "${DIM}Node.js $(node -v) detected${RESET}"
 
-# Install globally
+# Install globally — try npm registry first, then GitHub release tarball
 echo -e "${CYAN}Installing hyprnotes...${RESET}"
-npm install -g hyprnotes 2>/dev/null || {
-  echo -e "${DIM}Package not on npm yet, installing from GitHub...${RESET}"
-  npm install -g "https://github.com/cnvction/hyprnotes/tarball/master" 2>/dev/null || {
-    echo -e "${RED}Installation failed. Install manually:${RESET}"
+
+if npm install -g hyprnotes 2>/dev/null; then
+  echo -e "${DIM}Installed from npm registry${RESET}"
+else
+  echo -e "${DIM}Installing from GitHub release...${RESET}"
+  npm install -g "https://github.com/cnvction/hyprnotes/tarball/v1.0.1" 2>/dev/null || {
+    echo -e "${RED}Installation failed.${RESET}"
     echo -e "  ${DIM}npm i -g hyprnotes${RESET}"
     echo -e "  ${DIM}# or from source:${RESET}"
     echo -e "  ${DIM}git clone https://github.com/cnvction/hyprnotes.git${RESET}"
     echo -e "  ${DIM}cd hyprnotes && npm install && npm run build && npm link${RESET}"
     exit 1
   }
-}
+fi
 
 # Create ~/notes directory
 mkdir -p ~/notes
@@ -51,4 +53,6 @@ mkdir -p ~/notes
 echo ""
 echo -e "${GREEN}✓ Installed!${RESET} Run ${BOLD}hyprnotes${RESET} to start."
 echo -e "${DIM}Notes are stored in ~/notes/${RESET}"
+echo ""
+echo -e "${DIM}Also available via: brew install cnvction/hyprnotes/hyprnotes${RESET}"
 echo ""

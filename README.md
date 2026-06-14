@@ -15,8 +15,8 @@ npm i -g hyprnotes
 # Homebrew
 brew install cnvction/hyprnotes/hyprnotes
 
-# curl
-curl -sL hyprnotes.sh | bash
+# curl (any platform)
+curl -sL https://raw.githubusercontent.com/CNVCTION/hyprnotes/master/install.sh | bash
 ```
 
 ## Quick Start
