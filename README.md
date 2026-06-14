@@ -13,7 +13,7 @@
 npm i -g hyprnotes
 
 # Homebrew
-brew install --formula https://raw.githubusercontent.com/CNVCTION/hyprnotes/master/Formula/hyprnotes.rb
+brew install cnvction/hyprnotes/hyprnotes
 
 # curl
 curl -sL hyprnotes.sh | bash
