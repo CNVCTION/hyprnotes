@@ -33,7 +33,7 @@ echo -e "${DIM}Node.js $(node -v) detected${RESET}"
 echo -e "${CYAN}Installing hyprnotes...${RESET}"
 npm install -g hyprnotes 2>/dev/null || {
   echo -e "${DIM}Package not on npm yet, installing from GitHub...${RESET}"
-  npm install -g "https://github.com/cnvction/hyprnotes/tarball/main" 2>/dev/null || {
+  npm install -g "https://github.com/cnvction/hyprnotes/tarball/master" 2>/dev/null || {
     echo -e "${RED}Installation failed. Install manually:${RESET}"
     echo -e "  ${DIM}npm i -g hyprnotes${RESET}"
     echo -e "  ${DIM}# or from source:${RESET}"
