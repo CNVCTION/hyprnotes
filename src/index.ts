@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * hyprnotes — Dead-simple CLI notepad with Pi-style TUI
+ * hyprnotes — Dead-simple CLI notepad with minimalist TUI
  *
  * Type text → builds buffer.
  * / → dropdown: new, load, save, list, quit
