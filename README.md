@@ -10,7 +10,7 @@
 
 ```bash
 # npm (recommended)
-npm i -g hyprnotes
+npm i -g hyprnotes --allow-scripts=koffi
 
 # Homebrew
 brew install cnvction/hyprnotes/hyprnotes

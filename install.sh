@@ -33,11 +33,11 @@ echo -e "${DIM}Node.js $(node -v) detected${RESET}"
 # Install globally — try npm registry first, then GitHub release tarball
 echo -e "${CYAN}Installing hyprnotes...${RESET}"
 
-if npm install -g hyprnotes 2>/dev/null; then
+if npm install -g hyprnotes --allow-scripts=koffi 2>/dev/null; then
   echo -e "${DIM}Installed from npm registry${RESET}"
 else
   echo -e "${DIM}Installing from GitHub release...${RESET}"
-  npm install -g "https://github.com/cnvction/hyprnotes/tarball/v1.0.1" 2>/dev/null || {
+  npm install -g "https://github.com/cnvction/hyprnotes/tarball/v1.0.1" --allow-scripts=koffi 2>/dev/null || {
     echo -e "${RED}Installation failed.${RESET}"
     echo -e "  ${DIM}npm i -g hyprnotes${RESET}"
     echo -e "  ${DIM}# or from source:${RESET}"
